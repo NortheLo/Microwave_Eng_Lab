@@ -1,11 +1,11 @@
-function [strongest_freqs, spectrogram_data] = process_buffer_fft(buffer, chunk_size, overlap)
+function [strongest_freqs, spectrogram_data] = process_buffer_fft(buffer, f_sampling, chunk_size, overlap)
     % Default chunk size if not provided
-    if nargin < 2
+    if nargin < 3
         chunk_size = 1024;  % Default chunk size
     end
     
     % Default overlap if not provided (50% overlap)
-    if nargin < 3
+    if nargin < 4
         overlap = round(chunk_size / 2);  % Default overlap (50% overlap)
     end
     
@@ -14,10 +14,7 @@ function [strongest_freqs, spectrogram_data] = process_buffer_fft(buffer, chunk_
     
     % Initialize the result vector to store the strongest frequencies
     strongest_freqs = zeros(1, num_chunks);  % Vector for strongest frequencies
-    
-    % Sampling frequency (you can adjust this based on your system)
-    f_sampling = 1e6;  % Example: 1 MHz sampling rate (change as per your system)
-    
+        
     % Loop through the buffer and process each chunk
     for i = 1:num_chunks
         % Determine the start and end indices for the current chunk
