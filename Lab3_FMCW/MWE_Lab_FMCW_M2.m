@@ -5,6 +5,7 @@ c0 = physconst('LightSpeed');
 %% 4.2 Distance Measurement
 load("ws_task2.mat");
 
+fc = 24e9;       % [Hz]
 r = 5;           % [m]
 B = 1e9;         % [Hz]
 T_sweep = 10e-3; % [s]
@@ -15,7 +16,9 @@ f_b_max = (2 * gamma * r) / (c0);
 f_s_min = 2 * f_b_max * 1.3
 f_s_fft_min = f_s_min * 2
 
-[max_freqs, spectr] = process_buffer_fft(sif, 2048);
+% calc n-samples per triangle and round up to the nearest 2^n for fft
+opt_chunk_size = 2^(nextpow2(2 * T_sweep * fs)); 
+[max_freqs, spectr] = process_buffer_fft(sif, opt_chunk_size);
 
 nbins = 5;  % Number of bins (adjust depending on resolution needed)
 [counts, edges] = histcounts(max_freqs, nbins);
@@ -29,4 +32,6 @@ bin_centers = edges(1:end-1) + diff(edges)/2;
 top_freqs = bin_centers(top_bins);
 
 f_b = 0.5 * (top_freqs(1) + top_freqs(2));
+f_d = 0.5 * (top_freqs(1) - top_freqs(2));
 r = c0 / (2 * gamma) * f_b
+v_r = c0 / (2 * fc) * f_d

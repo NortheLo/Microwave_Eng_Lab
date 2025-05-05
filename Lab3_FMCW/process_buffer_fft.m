@@ -28,7 +28,7 @@ function [strongest_freqs, spectrogram_data] = process_buffer_fft(buffer, chunk_
         chunk = buffer(start_idx:end_idx);
         
         % Apply FFT to the chunk
-        magnitude = abs(fft(chunk));
+        magnitude = abs(fft(chunk) / chunk_size);
         
         % Find the index of the maximum magnitude (excluding the DC component)
         [~, max_index] = max(magnitude(2:end));  % Ignore DC (index 1)
