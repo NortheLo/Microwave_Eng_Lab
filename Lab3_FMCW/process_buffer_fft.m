@@ -42,5 +42,5 @@ function [strongest_freqs, power] = process_buffer_fft(buffer, f_sampling, chunk
     power = 10 * log10(power);
 
     % Now generate the spectrogram
-    %[spectrogram_data, ~, ~, ~, freq] = spectrogram(buffer, chunk_size, overlap, [], f_sampling); 
+    %[spectrogram_data, ~, ~, ~, ~] = spectrogram(buffer, chunk_size, overlap, [], f_sampling); 
 end

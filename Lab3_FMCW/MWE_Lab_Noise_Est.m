@@ -21,7 +21,7 @@ L_pd    = 4;             % [dB]
 G_ant   = 15;            % [dBi]
 G_lna   = 18;            % [dB]
 L_mix   = 8;             % [dB]
-G_ifa   = 33.3;          % [dB]
+G_ifa   = 34;            % [dB]
 F_lna   = 2.6;           % [dB]
 F_mix   = 8;             % [dB]
 F_ifa   = 19.1;          % [dB]
@@ -37,10 +37,19 @@ P_in  = P_vco - L_pd + G_ant - D_f + G_ant
 N_t   = lin_2_dBm(k_b * T * fs)
 SNR_i = P_in - N_t
 
-NF = F_lna +...
-       (F_mix - 1) / G_lna +...
-       (F_ifa - 1) / (G_lna * L_mix) +...
-       (F_ad  - 1) / (G_lna * L_mix * G_ifa)
 
+f_lna = db_2_lin(F_lna);
+l_mix = db_2_lin(-F_mix);
+g_lna = db_2_lin(G_lna);
+g_ifa = db_2_lin(G_ifa);
+f_ad = db_2_lin(F_ad);
+f_mix = db_2_lin(-F_mix);
+f_ifa = db_2_lin(F_ifa);
+
+F =     f_lna +...
+       (f_mix - 1) /  g_lna +...
+       (f_ifa - 1) / (g_lna * l_mix) +...
+       (f_ad  - 1) / (g_lna * l_mix * g_ifa);
+NF = 10 * log10(F)
 
 SNR_o = SNR_i - NF
