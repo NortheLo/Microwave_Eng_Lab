@@ -10,8 +10,8 @@ r = 5;           % [m]
 B = 1e9;         % [Hz]
 T_sweep = 10e-3; % [s]
 
-gamma = B / (T_sweep);
-f_b_max = (2 * gamma * r) / (c0);
+gamma = B / T_sweep;
+f_b_max = (2 * gamma * r) / c0;
 
 f_s_min = 2 * f_b_max * 1.3
 f_s_fft_min = f_s_min * 2

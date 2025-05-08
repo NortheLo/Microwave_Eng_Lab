@@ -33,7 +33,7 @@ for t = 1:time_slices
     peak_vals = spec(max_mask);  
 
     % for debugging the peaks
-    % plot_spectrum_with_peaks(spec, max_mask, fs);
+    %plot_spectrum_with_peaks(spec, max_mask, fs);
     
     if numel(peak_vals) >= 2
         [~, idx_sorted] = maxk(peak_vals, 2);         
@@ -62,10 +62,6 @@ r_max = max(range);
 v_min = min(v_r);
 v_max = max(v_r);
 
-
-
-% some plotting stuff from gpt
-
 fprintf('Raw:\n');
 fprintf('Range:   Min = %.3f m, Max = %.3f m\n', r_min, r_max);
 fprintf('Velocity: Min = %.3f m/s, Max = %.3f m/s\n', v_min, v_max);
@@ -82,7 +78,7 @@ v_r_max_f = max(v_r_filtered);
 fprintf('\nFiltered:\n');
 fprintf('Range:   Min = %.3f m, Max = %.3f m\n', r_min_f, r_max_f);
 fprintf('Velocity: Min = %.3f m/s, Max = %.3f m/s\n', v_r_min_f, v_r_max_f);
-
+fprintf('For Q. 4.2.2: %.3f m\n', mean(range_filtered));
 
 % Time or index axis
 t = 1:length(range);
