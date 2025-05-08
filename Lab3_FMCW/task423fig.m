@@ -14,8 +14,9 @@ N = round(T_sweep * fs);
 fft_length = 2^nextpow2(N);
 
 % 4 * for smooth vel
-[s, f, t] = make_spectrogram(sif, fs, 4 * fft_length);
-[fft_size, time_slices] = size(s);
+fft_length = 4 * fft_length
+[s, f, t] = make_spectrogram(sif, fs, fft_length);
+[~, time_slices] = size(s);
 
 v_r = zeros(1, time_slices);
 range = zeros(1, time_slices);
@@ -47,7 +48,8 @@ for t = 1:time_slices
         top2_values = [];
     end
 
-    top2_indices = top2_indices * fs / fft_size;
+    top2_indices = top2_indices * fs / fft_length;
+
     f_b = 0.5 * (top2_indices(1) + top2_indices(2));
     f_d = 0.5 * (top2_indices(1) - top2_indices(2));
 
@@ -60,13 +62,27 @@ r_max = max(range);
 v_min = min(v_r);
 v_max = max(v_r);
 
-range_filtered = sgolayfilt(range, 3, 11);
-v_r_filtered = sgolayfilt(v_r, 3, 11);
+
 
 % some plotting stuff from gpt
 
+fprintf('Raw:\n');
 fprintf('Range:   Min = %.3f m, Max = %.3f m\n', r_min, r_max);
 fprintf('Velocity: Min = %.3f m/s, Max = %.3f m/s\n', v_min, v_max);
+
+range_filtered = sgolayfilt(range, 3, 11);
+v_r_filtered = sgolayfilt(v_r, 3, 11);
+
+r_min_f = min(range_filtered);
+r_max_f = max(range_filtered);
+
+v_r_min_f = min(v_r_filtered);
+v_r_max_f = max(v_r_filtered);
+
+fprintf('\nFiltered:\n');
+fprintf('Range:   Min = %.3f m, Max = %.3f m\n', r_min_f, r_max_f);
+fprintf('Velocity: Min = %.3f m/s, Max = %.3f m/s\n', v_r_min_f, v_r_max_f);
+
 
 % Time or index axis
 t = 1:length(range);
