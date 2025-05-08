@@ -18,7 +18,7 @@ f_s_fft_min = f_s_min * 2
 
 % calc n-samples per triangle and round up to the nearest 2^n for fft
 opt_chunk_size = 2^(nextpow2(2 * T_sweep * fs)); 
-[max_freqs, spectr] = process_buffer_fft(sif, fs, opt_chunk_size);
+[max_freqs, ~] = process_buffer_fft(sif, fs, opt_chunk_size);
 
 nbins = 5;  % Number of bins (adjust depending on resolution needed)
 [counts, edges] = histcounts(max_freqs, nbins);

@@ -1,21 +1,41 @@
-clear; close all; clc;
+clear; clc;
 
-function pwr = get_pwr(path)
-    load(path);
-    
-    T_sweep = 10e-3; % [s]
+% Load signals
+sif_with = load('ws_task2.mat').sif;
+sif_without = load('ws_task3.mat').sif;
 
-    opt_chunk_size = 2^(nextpow2(2 * T_sweep * fs));
-    [~, pwr] = process_buffer_fft(sif, fs, opt_chunk_size);
-end
+% Match lengths
+N = min(length(sif_with), length(sif_without));
+sif_with = sif_with(1:N);
+sif_without = sif_without(1:N);
 
+% FFT power spectra
+spectrum_with = abs(fft(sif_with)).^2 / N;
+spectrum_noise = abs(fft(sif_without)).^2 / N;
 
-% 4.4 Distance Measurement
-pwr_noise = get_pwr("ws_task3.mat");
-pwr_sig = get_pwr("ws_task2.mat");
+% Focus on positive frequencies (1:N/2)
+[~, peak_bin] = max(spectrum_with(2:N/2));  % ignore DC
+peak_bin = peak_bin + 1;
 
-g = mean(pwr_sig)/ mean(pwr_noise);
-snr = 10 * log10(abs(g))
+% Signal and noise power at beat frequency
+P_signal_bin = spectrum_with(peak_bin);
+P_noise_bin = spectrum_noise(peak_bin);
 
-% thoughts:
-% we compare the max if freq of noise vs the one with a target
+% SNR estimate
+SNR_bin = P_signal_bin / max(P_noise_bin, eps);
+SNR_dB = 10 * log10(SNR_bin);
+
+% Output result
+fprintf('Frequency-domain SNR at peak bin: %.2f dB\n', SNR_dB);
+
+% Optional: visualize
+f = linspace(0, 1, N);  % normalized frequency
+figure;
+plot(f(1:N/2), 10*log10(spectrum_with(1:N/2)), 'b', 'DisplayName', 'Signal+Noise');
+hold on;
+plot(f(1:N/2), 10*log10(spectrum_noise(1:N/2)), 'r', 'DisplayName', 'Noise Only');
+xline(f(peak_bin), '--k', 'DisplayName', 'Peak');
+legend; grid on;
+xlabel('Normalized Frequency');
+ylabel('Power (dB)');
+title('FFT Spectra');

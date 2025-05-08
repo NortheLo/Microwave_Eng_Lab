@@ -1,4 +1,4 @@
-function [strongest_freqs, spectrogram_data] = process_buffer_fft(buffer, f_sampling, chunk_size, overlap)
+function [strongest_freqs, power] = process_buffer_fft(buffer, f_sampling, chunk_size, overlap)
     % Default chunk size if not provided
     if nargin < 3
         chunk_size = 1024;  % Default chunk size
@@ -14,7 +14,8 @@ function [strongest_freqs, spectrogram_data] = process_buffer_fft(buffer, f_samp
     
     % Initialize the result vector to store the strongest frequencies
     strongest_freqs = zeros(1, num_chunks);  % Vector for strongest frequencies
-        
+    power = zeros(1, num_chunks);
+
     % Loop through the buffer and process each chunk
     for i = 1:num_chunks
         % Determine the start and end indices for the current chunk
@@ -24,20 +25,22 @@ function [strongest_freqs, spectrogram_data] = process_buffer_fft(buffer, f_samp
         % Extract the chunk from the buffer
         chunk = buffer(start_idx:end_idx);
         
-        % Apply FFT to the chunk
-        magnitude = abs(fft(chunk) / chunk_size);
+        % Apply FFT to the chunk and normalize as fft is integrating
+        magnitude = abs(fft(chunk).^2 / chunk_size);
         
         % Find the index of the maximum magnitude (excluding the DC component)
-        [~, max_index] = max(magnitude(2:end));  % Ignore DC (index 1)
+        [pwr, max_index] = max(magnitude(2:end));  % Ignore DC (index 1)
         
         freq_bin = max_index + 1;  % Adjust index because we ignored DC component
         freq_resolution = f_sampling / length(chunk);
         strongest_freq = (freq_bin - 1) * freq_resolution;
-        
+        power(i) = pwr;
         % Store the strongest frequency for this chunk
         strongest_freqs(i) = strongest_freq;
     end
     
+    power = 10 * log10(power);
+
     % Now generate the spectrogram
-    [spectrogram_data, ~, ~, ~, freq] = spectrogram(buffer, chunk_size, overlap, [], f_sampling); 
+    %[spectrogram_data, ~, ~, ~, freq] = spectrogram(buffer, chunk_size, overlap, [], f_sampling); 
 end
