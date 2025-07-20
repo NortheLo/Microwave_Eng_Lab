@@ -1,0 +1,1522 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Lab Report for Antenna of Group 1 (Wörner, Velez, Northe)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="Lab5_Antennas_Group1_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Lab5_Antennas_Group1_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="Lab5_Antennas_Group1_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="Lab5_Antennas_Group1_files/libs/quarto-html/popper.min.js"></script>
+<script src="Lab5_Antennas_Group1_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Lab5_Antennas_Group1_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Lab5_Antennas_Group1_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Lab5_Antennas_Group1_files/libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Lab5_Antennas_Group1_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Lab5_Antennas_Group1_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Lab5_Antennas_Group1_files/libs/bootstrap/bootstrap-bb462d781dde1847d9e3ccf7736099dd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Lab Report for Antenna of Group 1 (Wörner, Velez, Northe)</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>The source code and the binaries from this report can be found in our Github <a href="https://github.com/NortheLo/Microwave_Eng_Lab/tree/main/Lab5_Antennas">repository</a>.</p>
+<div id="7d4a5feb" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.io <span class="im">import</span> loadmat</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.signal <span class="im">import</span> find_peaks</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display, Math</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.interpolate <span class="im">import</span> interp1d</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> loadMatlabData(path):</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">    Loads a .mat file from the given path and returns a cleaned dictionary.</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters:</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">        path (str): Relative or absolute path to the .mat file.</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">        dict: A dictionary containing variable names and their corresponding NumPy arrays.</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    raw <span class="op">=</span> loadmat(path)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Remove MATLAB metadata keys</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    cleaned <span class="op">=</span> {k: v <span class="cf">for</span> k, v <span class="kw">in</span> raw.items() <span class="cf">if</span> <span class="kw">not</span> k.startswith(<span class="st">'__'</span>)}</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Flatten 1D arrays and ensure consistent data types</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> key, value <span class="kw">in</span> cleaned.items():</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">isinstance</span>(value, np.ndarray) <span class="kw">and</span> value.ndim <span class="op">==</span> <span class="dv">2</span> <span class="kw">and</span> <span class="dv">1</span> <span class="kw">in</span> value.shape:</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>            cleaned[key] <span class="op">=</span> value.flatten()</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>            cleaned[key] <span class="op">=</span> np.array(value)</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> cleaned</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_polarizations(co_path, cross_path, title<span class="op">=</span><span class="st">"Measured Radiation Pattern"</span>, prominence<span class="op">=</span><span class="dv">5</span>):</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="co">    Plots co- and cross-polarization radiation patterns from two .mat files.</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="co">    Automatically computes and marks HPBW and nulls in the co-polarization curve.</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="co">    Also calculates cross polarization suppression (XPS) within the HPBW.</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters:</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="co">        co_path (str): Path to co-polarization .mat file.</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="co">        cross_path (str): Path to cross-polarization .mat file.</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="co">        title (str): Plot title.</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="co">        prominence (float): Minimum prominence (in dB) to detect nulls.</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Load co-polarization</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>    co_data <span class="op">=</span> loadMatlabData(co_path)</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>    mess_co <span class="op">=</span> co_data[<span class="st">'messdummy'</span>][<span class="dv">0</span>]</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>    angles <span class="op">=</span> mess_co[<span class="st">'angles'</span>].flatten()</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>    E_co <span class="op">=</span> mess_co[<span class="st">'measured_data'</span>].flatten()</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>    E_co_dB <span class="op">=</span> <span class="dv">20</span> <span class="op">*</span> np.log10(np.<span class="bu">abs</span>(E_co)) <span class="co">###</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Load cross-polarization</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>    cross_data <span class="op">=</span> loadMatlabData(cross_path)</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>    mess_cross <span class="op">=</span> cross_data[<span class="st">'messdummy'</span>][<span class="dv">0</span>]</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>    E_cross <span class="op">=</span> mess_cross[<span class="st">'measured_data'</span>].flatten()</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>    E_cross_dB <span class="op">=</span> <span class="dv">20</span> <span class="op">*</span> np.log10(np.<span class="bu">abs</span>(E_cross)) <span class="co">###</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>    <span class="co"># --- Half Power Beam Width ---</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>    max_E <span class="op">=</span> np.<span class="bu">max</span>(E_co_dB)</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>    threshold <span class="op">=</span> max_E <span class="op">-</span> <span class="dv">3</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>    hpbw_indices <span class="op">=</span> np.where(E_co_dB <span class="op">&gt;=</span> threshold)[<span class="dv">0</span>]</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(hpbw_indices) <span class="op">&gt;=</span> <span class="dv">2</span>:</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>        hpbw_left <span class="op">=</span> angles[hpbw_indices[<span class="dv">0</span>]]</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>        hpbw_right <span class="op">=</span> angles[hpbw_indices[<span class="op">-</span><span class="dv">1</span>]]</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>        hpbw_range <span class="op">=</span> (hpbw_left, hpbw_right)</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>        hpbw_range <span class="op">=</span> (<span class="va">None</span>, <span class="va">None</span>)</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>    <span class="co"># --- Cross-Polarization Suppression (XPS) ---</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> hpbw_range[<span class="dv">0</span>] <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>        in_hpbw <span class="op">=</span> (angles <span class="op">&gt;=</span> hpbw_range[<span class="dv">0</span>]) <span class="op">&amp;</span> (angles <span class="op">&lt;=</span> hpbw_range[<span class="dv">1</span>])</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>        G_co <span class="op">=</span> np.<span class="bu">max</span>(E_co_dB[in_hpbw])</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>        G_x <span class="op">=</span> np.<span class="bu">max</span>(E_cross_dB[in_hpbw])</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>        xps <span class="op">=</span> G_co <span class="op">-</span> G_x</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>        G_co <span class="op">=</span> G_x <span class="op">=</span> xps <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>    <span class="co"># --- Nulls ---</span></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>    null_indices, _ <span class="op">=</span> find_peaks(<span class="op">-</span>E_co_dB, prominence<span class="op">=</span>prominence)</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>    null_angles <span class="op">=</span> angles[null_indices]</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>    null_values <span class="op">=</span> E_co_dB[null_indices]</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>    <span class="co"># --- Plot ---</span></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">5</span>))</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>    plt.plot(angles, E_co_dB, label<span class="op">=</span><span class="st">'Co-polarization'</span>)</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>    plt.plot(angles, E_cross_dB, label<span class="op">=</span><span class="st">'Cross-polarization'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Mark HPBW</span></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> hpbw_range[<span class="dv">0</span>] <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>        plt.axvline(hpbw_left, color<span class="op">=</span><span class="st">'green'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, label<span class="op">=</span><span class="st">'-3 dB points'</span>)</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>        plt.axvline(hpbw_right, color<span class="op">=</span><span class="st">'green'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>        plt.fill_between(angles, E_co_dB, max_E <span class="op">-</span> <span class="dv">3</span>,</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>                         where<span class="op">=</span>(angles <span class="op">&gt;=</span> hpbw_left) <span class="op">&amp;</span> (angles <span class="op">&lt;=</span> hpbw_right),</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>                         color<span class="op">=</span><span class="st">'lightgreen'</span>, alpha<span class="op">=</span><span class="fl">0.3</span>, label<span class="op">=</span><span class="st">'HPBW region'</span>)</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Mark Nulls</span></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(null_angles) <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>        plt.plot(null_angles, null_values, <span class="st">'ro'</span>, label<span class="op">=</span><span class="st">'Nulls'</span>)</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> a, v <span class="kw">in</span> <span class="bu">zip</span>(null_angles, null_values):</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>            plt.text(a, v <span class="op">-</span> <span class="dv">2</span>, <span class="ss">f"</span><span class="sc">{</span>a<span class="sc">:.1f}</span><span class="ss">°"</span>, ha<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">8</span>, color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Final plot formatting</span></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">"Angle (degrees)"</span>)</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">"Amplitude (dB)"</span>)</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>    plt.title(title)</span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>    plt.grid(<span class="va">True</span>)</span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>    plt.legend()</span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout()</span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>    <span class="co"># --- Print results ---</span></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> hpbw_range[<span class="dv">0</span>] <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"HPBW: </span><span class="sc">{</span>hpbw_right <span class="op">-</span> hpbw_left<span class="sc">:.2f}</span><span class="ss">° (from </span><span class="sc">{</span>hpbw_left<span class="sc">:.1f}</span><span class="ss">° to </span><span class="sc">{</span>hpbw_right<span class="sc">:.1f}</span><span class="ss">°)"</span>)</span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"HPBW could not be determined."</span>)</span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Nulls found at angles (deg): </span><span class="sc">{</span>[<span class="ss">f'</span><span class="sc">{</span>a<span class="sc">:.1f}</span><span class="ss">'</span> <span class="cf">for</span> a <span class="kw">in</span> null_angles]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> xps <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Cross Polarization Suppression (XPS): </span><span class="sc">{</span>xps<span class="sc">:.2f}</span><span class="ss"> dB"</span>)</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"  Co-pol max within HPBW: </span><span class="sc">{</span>G_co<span class="sc">:.2f}</span><span class="ss"> dB"</span>)</span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"  Cross-pol max within HPBW: </span><span class="sc">{</span>G_x<span class="sc">:.2f}</span><span class="ss"> dB"</span>)</span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"XPS could not be calculated."</span>)</span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_array_patterns(paths, labels<span class="op">=</span><span class="va">None</span>, title<span class="op">=</span><span class="st">"Patch Array Beam Steering"</span>, printL<span class="op">=</span><span class="va">True</span>, printA<span class="op">=</span><span class="va">False</span>, prominence<span class="op">=</span><span class="dv">3</span>):</span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a><span class="co">    Plots multiple patch array radiation patterns and marks HPBW for each.</span></span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a><span class="co">    Also prints the angle where the main lobe (maximum) occurs for each measurement.</span></span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters:</span></span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a><span class="co">        paths (list of str): Paths to .mat files (1 per phase setting).</span></span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a><span class="co">        labels (list of str): Optional list of labels (default: Phase Setting 1, 2, 3...).</span></span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a><span class="co">        title (str): Title for the plot.</span></span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a><span class="co">        prominence (float): dB threshold to define HPBW (-3 dB region).</span></span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> labels <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a>        labels <span class="op">=</span> [<span class="ss">f"Phase Setting </span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(paths))]</span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a>    plt.close(<span class="st">'all'</span>)</span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">5</span>))</span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, path <span class="kw">in</span> <span class="bu">enumerate</span>(paths):</span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Load and extract data</span></span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a>        data <span class="op">=</span> loadMatlabData(path)</span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a>        mess <span class="op">=</span> data[<span class="st">'messdummy'</span>][<span class="dv">0</span>]</span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a>        angles <span class="op">=</span> mess[<span class="st">'angles'</span>].flatten()</span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a>        E <span class="op">=</span> mess[<span class="st">'measured_data'</span>].flatten()</span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a>        E_dB <span class="op">=</span> <span class="dv">20</span> <span class="op">*</span> np.log10(np.<span class="bu">abs</span>(E))  <span class="co"># Convert to dB scale</span></span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Find max and corresponding angle</span></span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a>        max_E <span class="op">=</span> np.<span class="bu">max</span>(E_dB)</span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a>        max_idx <span class="op">=</span> np.argmax(E_dB)</span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a>        max_val <span class="op">=</span> E_dB[max_idx]</span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a>        max_angle <span class="op">=</span> angles[max_idx]</span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> printL:</span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>labels[i]<span class="sc">}</span><span class="ss">: max amplitude = </span><span class="sc">{</span>max_val<span class="sc">:.2f}</span><span class="ss">dB at angle </span><span class="sc">{</span>max_angle<span class="sc">:.1f}</span><span class="ss">°"</span>)</span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> printA:</span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a>            max_angle <span class="op">=</span> (<span class="op">-</span><span class="dv">1</span>) <span class="op">*</span> max_angle  </span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="vs">rf"</span><span class="sc">{</span>labels[i]<span class="sc">}</span><span class="vs"> corresponds to measured relative angle shift of </span><span class="sc">{</span>max_angle<span class="sc">:.1f}</span><span class="vs">°</span><span class="dv">.</span><span class="vs"> With max amplitude = </span><span class="sc">{</span>max_val<span class="sc">:.2f}</span><span class="vs">dB</span><span class="dv">.</span><span class="vs">"</span>)</span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Plot pattern</span></span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a>        plt.plot(angles, E_dB, label<span class="op">=</span>labels[i])</span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a>        <span class="co"># HPBW: Find -3 dB boundaries</span></span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a>        threshold <span class="op">=</span> max_val <span class="op">-</span> <span class="dv">3</span></span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a>        hpbw_indices <span class="op">=</span> np.where(E_dB <span class="op">&gt;=</span> threshold)[<span class="dv">0</span>]</span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(hpbw_indices) <span class="op">&gt;=</span> <span class="dv">2</span>:</span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a>            left <span class="op">=</span> angles[hpbw_indices[<span class="dv">0</span>]]</span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a>            right <span class="op">=</span> angles[hpbw_indices[<span class="op">-</span><span class="dv">1</span>]]</span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a>            hpbw_range <span class="op">=</span> right <span class="op">-</span> left</span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"HPBW for </span><span class="sc">{</span>labels[i]<span class="sc">}</span><span class="ss"> is: </span><span class="sc">{</span>hpbw_range<span class="sc">}</span><span class="ss">°."</span>)</span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a>            hpbw_range <span class="op">=</span> (<span class="va">None</span>, <span class="va">None</span>)</span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a>        plt.axvline(left, linestyle<span class="op">=</span><span class="st">'--'</span>, color<span class="op">=</span><span class="st">'gray'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a>        plt.axvline(right, linestyle<span class="op">=</span><span class="st">'--'</span>, color<span class="op">=</span><span class="st">'gray'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a>        plt.fill_between(</span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a>            angles, E_dB, threshold,</span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a>            where<span class="op">=</span>(angles <span class="op">&gt;=</span> left) <span class="op">&amp;</span> (angles <span class="op">&lt;=</span> right),</span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a>            color<span class="op">=</span><span class="st">'lightgreen'</span>, alpha<span class="op">=</span><span class="fl">0.3</span>,</span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a>            label<span class="op">=</span><span class="st">'HPBW region'</span> <span class="cf">if</span> i <span class="op">==</span> <span class="dv">0</span> <span class="cf">else</span> <span class="va">None</span></span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Final plot formatting</span></span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">"Angle (degrees)"</span>)</span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">"Amplitude (dB)"</span>)</span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a>    plt.title(title)</span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a>    plt.grid(<span class="va">True</span>)</span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a>    plt.legend()</span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout()</span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> load_gain_from_mat(filepath):</span>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Load Frequency and Amplitude Data from .mat file"""</span></span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> loadmat(filepath)</span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a>    meas <span class="op">=</span> data[<span class="st">'messdummy'</span>]</span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a>    freqs <span class="op">=</span> meas[<span class="st">'freqlist'</span>][<span class="dv">0</span>,<span class="dv">0</span>].squeeze()           </span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a>    E <span class="op">=</span> meas[<span class="st">'measured_data'</span>][<span class="dv">0</span>,<span class="dv">0</span>].squeeze()          </span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a>    E_dB <span class="op">=</span> <span class="dv">20</span> <span class="op">*</span> np.log10(np.<span class="bu">abs</span>(E)) </span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a>    E_dB[np.isneginf(E_dB)] <span class="op">=</span> np.nan                 </span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> freqs, E_dB</span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> load_cal_from_mat(filepath):</span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Load Frequency and Amplitude Data from .mat file"""</span></span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> loadMatlabData(filepath)</span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a>    meas <span class="op">=</span> data[<span class="st">'cal_data'</span>][<span class="dv">0</span>][<span class="st">'measuredata'</span>][<span class="dv">0</span>][<span class="dv">0</span>]</span>
+<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a>    freqs <span class="op">=</span> meas[<span class="st">'FreqList'</span>].squeeze()          </span>
+<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a>    E <span class="op">=</span> meas[<span class="st">'Data'</span>].squeeze()                 </span>
+<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> freqs, E</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="exercise-6-horn-antenna-measurements-experiment" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-6-horn-antenna-measurements-experiment">5.6 Exercise 6 – Horn Antenna Measurements (Experiment)</h2>
+<ul>
+<li>Record the radiation pattern (<strong>Co- and Cross-polarization</strong>) of both horn antennas in the <strong>E-plane</strong> and <strong>H-plane</strong> for <strong>f = 11.85 GHz</strong>.
+<ul>
+<li>Horn 1: extended in <strong>E-plane</strong></li>
+<li>Horn 2: extended in <strong>H-plane</strong></li>
+</ul></li>
+<li>Print the following (<strong>not normalized</strong>) diagrams:
+<ol type="1">
+<li>Co- and X-polarization in the E-plane for horn 1 in one diagram</li>
+<li>Co- and X-polarization in the H-plane for horn 1 in one diagram</li>
+<li>Co- and X-polarization in the E-plane for horn 2 in one diagram</li>
+<li>Co- and X-polarization in the H-plane for horn 2 in one diagram</li>
+</ol></li>
+<li>Mark the half power beam width and the nulls in all diagrams (only Co-polarization)</li>
+<li>Extract the following values from the 4 diagrams:
+<ul>
+<li>Half power beam width (Co-polarization)</li>
+<li>Cross polarization suppression</li>
+</ul></li>
+</ul>
+<section id="co--and-cross-polarization-in-the-e-plane-for-horn-1-in-one-diagram" class="level4">
+<h4 class="anchored" data-anchor-id="co--and-cross-polarization-in-the-e-plane-for-horn-1-in-one-diagram">5.6.1 Co- and Cross-polarization in the <strong>E-plane</strong> for <strong>Horn 1</strong> in one diagram</h4>
+<div id="0edfdf3e" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>plot_polarizations(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Microwave_lab_07_07_25/Measurement_Antennas/Calibrated/561_Horn1_Eplane_Co.mat'</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Microwave_lab_07_07_25/Measurement_Antennas/Calibrated/561_Horn1_Eplane_X.mat'</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Horn Antenna 1 E-plane: Co- vs Cross-Polarization"</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    prominence<span class="op">=</span><span class="dv">2</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lab5_Antennas_Group1_files/figure-html/cell-3-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>HPBW: 12.00° (from -6.0° to 6.0°)
+Nulls found at angles (deg): ['-54.0', '-38.0', '38.0', '52.0', '72.0']
+Cross Polarization Suppression (XPS): 32.60 dB
+  Co-pol max within HPBW: -46.58 dB
+  Cross-pol max within HPBW: -79.19 dB</code></pre>
+</div>
+</div>
+</section>
+<section id="co--and-cross-polarization-in-the-h-plane-for-horn-1-in-one-diagram" class="level4">
+<h4 class="anchored" data-anchor-id="co--and-cross-polarization-in-the-h-plane-for-horn-1-in-one-diagram">5.6.2 Co- and Cross-polarization in the <strong>H-plane</strong> for <strong>Horn 1</strong> in one diagram</h4>
+<div id="69262152" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>plot_polarizations(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Microwave_lab_07_07_25/Measurement_Antennas/Calibrated/562_Horn1_Hplane_Co.mat'</span>,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Microwave_lab_07_07_25/Measurement_Antennas/Calibrated/562_Horn1_Hplane_X.mat'</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Horn Antenna 1 H-plane: Co- vs Cross-Polarization"</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    prominence<span class="op">=</span><span class="dv">3</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lab5_Antennas_Group1_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>HPBW: 58.00° (from -27.0° to 31.0°)
+Nulls found at angles (deg): []
+Cross Polarization Suppression (XPS): 30.52 dB
+  Co-pol max within HPBW: -47.48 dB
+  Cross-pol max within HPBW: -78.00 dB</code></pre>
+</div>
+</div>
+</section>
+<section id="co--and-cross-polarization-in-the-e-plane-for-horn-2-in-one-diagram" class="level4">
+<h4 class="anchored" data-anchor-id="co--and-cross-polarization-in-the-e-plane-for-horn-2-in-one-diagram">5.6.3 Co- and Cross-polarization in the <strong>E-plane</strong> for <strong>Horn 2</strong> in one diagram</h4>
+<div id="1d2f09cc" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>plot_polarizations(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Microwave_lab_07_07_25/Measurement_Antennas/Calibrated/563_Horn2_Eplane_Co.mat'</span>,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Microwave_lab_07_07_25/Measurement_Antennas/Calibrated/563_Horn2_Eplane_X.mat'</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Horn Antenna 2 E-plane: Co- vs Cross-Polarization"</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    prominence<span class="op">=</span><span class="dv">5</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lab5_Antennas_Group1_files/figure-html/cell-5-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>HPBW: 77.00° (from -40.0° to 37.0°)
+Nulls found at angles (deg): []
+Cross Polarization Suppression (XPS): 28.96 dB
+  Co-pol max within HPBW: -48.27 dB
+  Cross-pol max within HPBW: -77.23 dB</code></pre>
+</div>
+</div>
+</section>
+<section id="co--and-cross-polarization-in-the-h-plane-for-horn-2-in-one-diagram" class="level4">
+<h4 class="anchored" data-anchor-id="co--and-cross-polarization-in-the-h-plane-for-horn-2-in-one-diagram">5.6.4 Co- and Cross-polarization in the <strong>H-plane</strong> for <strong>Horn 2</strong> in one diagram</h4>
+<div id="07c59446" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>plot_polarizations(</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Microwave_lab_07_07_25/Measurement_Antennas/Calibrated/564_Horn2_Hplane_Co.mat'</span>,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Microwave_lab_07_07_25/Measurement_Antennas/Calibrated/564_Horn2Hplane_X.mat'</span>,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Horn Antenna 2 H-plane: Co- vs Cross-Polarization"</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    prominence<span class="op">=</span><span class="dv">2</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lab5_Antennas_Group1_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>HPBW: 12.00° (from -6.0° to 6.0°)
+Nulls found at angles (deg): ['-75.0', '-66.0', '-60.0', '-45.0', '39.0', '48.0', '54.0', '66.0', '87.0']
+Cross Polarization Suppression (XPS): 32.40 dB
+  Co-pol max within HPBW: -51.08 dB
+  Cross-pol max within HPBW: -83.48 dB</code></pre>
+</div>
+</div>
+</section>
+<section id="summary-of-measurement-results-exercise-5.6" class="level4">
+<h4 class="anchored" data-anchor-id="summary-of-measurement-results-exercise-5.6">Summary of Measurement Results – Exercise 5.6</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 6%">
+<col style="width: 12%">
+<col style="width: 38%">
+<col style="width: 14%">
+<col style="width: 10%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Horn Antenna</th>
+<th>Plane</th>
+<th>HPBW (°)</th>
+<th>Nulls (°)</th>
+<th>X-Pol Suppression (dB)</th>
+<th>Co-pol Max (dB)</th>
+<th>X-pol Max (dB)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Horn 1</td>
+<td>E-plane</td>
+<td>12.0 (−6.0 to 6.0)</td>
+<td>−54.0, −38.0, 38.0, 52.0, 72.0</td>
+<td>32.60</td>
+<td>−46.58</td>
+<td>−79.19</td>
+</tr>
+<tr class="even">
+<td>Horn 1</td>
+<td>H-plane</td>
+<td>58.0 (−27.0 to 31.0)</td>
+<td>−87.0</td>
+<td>30.52</td>
+<td>−47.48</td>
+<td>−78.00</td>
+</tr>
+<tr class="odd">
+<td>Horn 2</td>
+<td>E-plane</td>
+<td>77.0 (−40.0 to 37.0)</td>
+<td>—</td>
+<td>28.96</td>
+<td>−48.27</td>
+<td>−77.23</td>
+</tr>
+<tr class="even">
+<td>Horn 2</td>
+<td>H-plane</td>
+<td>12.0 (−6.0 to 6.0)</td>
+<td>−75.0, −66.0, −60.0, −45.0, 39.0, 48.0, 54.0, 66.0, 87.0</td>
+<td>32.40</td>
+<td>−51.08</td>
+<td>−83.48</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="compare-the-shape-of-the-diagrams-1-and-4-and-elaborate" class="level4">
+<h4 class="anchored" data-anchor-id="compare-the-shape-of-the-diagrams-1-and-4-and-elaborate">Compare the shape of the diagrams 1 and 4 and elaborate:</h4>
+<ul>
+<li>Why is there a difference although the size of the aperture is identical?</li>
+</ul>
+<div id="b42771b2" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> load_fields(co_path, x_path):</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    co_data <span class="op">=</span> loadMatlabData(co_path)[<span class="st">'messdummy'</span>][<span class="dv">0</span>]</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    x_data <span class="op">=</span> loadMatlabData(x_path)[<span class="st">'messdummy'</span>][<span class="dv">0</span>]</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    angles <span class="op">=</span> co_data[<span class="st">'angles'</span>].flatten()</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    E_co <span class="op">=</span> <span class="dv">20</span> <span class="op">*</span> np.log10(np.<span class="bu">abs</span>(co_data[<span class="st">'measured_data'</span>].flatten()))</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    E_x <span class="op">=</span> <span class="dv">20</span> <span class="op">*</span> np.log10(np.<span class="bu">abs</span>(x_data[<span class="st">'measured_data'</span>].flatten()))</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> angles, E_co, E_x</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_comparison_subplots(co_paths, x_paths, titles, prominence<span class="op">=</span><span class="dv">5</span>):</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    fig, axs <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">5</span>))</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>        angles, E_co, E_x <span class="op">=</span> load_fields(co_paths[i], x_paths[i])</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>        ax <span class="op">=</span> axs[i]</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Plot Co and X</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>        ax.plot(angles, E_co, label<span class="op">=</span><span class="st">"Co-pol"</span>)</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>        ax.plot(angles, E_x, <span class="st">'--'</span>, label<span class="op">=</span><span class="st">"X-pol"</span>)</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>        <span class="co"># HPBW</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>        max_E <span class="op">=</span> np.<span class="bu">max</span>(E_co)</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>        threshold <span class="op">=</span> max_E <span class="op">-</span> <span class="dv">3</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>        hpbw_idx <span class="op">=</span> np.where(E_co <span class="op">&gt;=</span> threshold)[<span class="dv">0</span>]</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(hpbw_idx) <span class="op">&gt;=</span> <span class="dv">2</span>:</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>            left <span class="op">=</span> angles[hpbw_idx[<span class="dv">0</span>]]</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>            right <span class="op">=</span> angles[hpbw_idx[<span class="op">-</span><span class="dv">1</span>]]</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>            ax.axvline(left, linestyle<span class="op">=</span><span class="st">'--'</span>, color<span class="op">=</span><span class="st">'green'</span>, label<span class="op">=</span><span class="st">'-3 dB points'</span> <span class="cf">if</span> i <span class="op">==</span> <span class="dv">0</span> <span class="cf">else</span> <span class="st">""</span>)</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>            ax.axvline(right, linestyle<span class="op">=</span><span class="st">'--'</span>, color<span class="op">=</span><span class="st">'green'</span>)</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>            ax.fill_between(angles, E_co, threshold,</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>                            where<span class="op">=</span>(angles <span class="op">&gt;=</span> left) <span class="op">&amp;</span> (angles <span class="op">&lt;=</span> right),</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>                            color<span class="op">=</span><span class="st">'lightgreen'</span>, alpha<span class="op">=</span><span class="fl">0.3</span>, label<span class="op">=</span><span class="st">'HPBW'</span> <span class="cf">if</span> i <span class="op">==</span> <span class="dv">0</span> <span class="cf">else</span> <span class="st">""</span>)</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>            <span class="co"># XPS</span></span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>            in_hpbw <span class="op">=</span> (angles <span class="op">&gt;=</span> left) <span class="op">&amp;</span> (angles <span class="op">&lt;=</span> right)</span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>            G_co <span class="op">=</span> np.<span class="bu">max</span>(E_co[in_hpbw])</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>            G_x <span class="op">=</span> np.<span class="bu">max</span>(E_x[in_hpbw])</span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>            xps <span class="op">=</span> G_co <span class="op">-</span> G_x</span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss"> </span><span class="sc">{</span>titles[i]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"HPBW: </span><span class="sc">{</span>right <span class="op">-</span> left<span class="sc">:.2f}</span><span class="ss">° (from </span><span class="sc">{</span>left<span class="sc">:.1f}</span><span class="ss">° to </span><span class="sc">{</span>right<span class="sc">:.1f}</span><span class="ss">°)"</span>)</span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"XPS: </span><span class="sc">{</span>xps<span class="sc">:.2f}</span><span class="ss"> dB"</span>)</span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss"> HPBW could not be determined for </span><span class="sc">{</span>titles[i]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Nulls (only if found)</span></span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>        null_idx, _ <span class="op">=</span> find_peaks(<span class="op">-</span>E_co, prominence<span class="op">=</span>prominence)</span>
+<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(null_idx) <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a>            null_angles <span class="op">=</span> angles[null_idx]</span>
+<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a>            null_values <span class="op">=</span> E_co[null_idx]</span>
+<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a>            ax.plot(null_angles, null_values, <span class="st">'ro'</span>, label<span class="op">=</span><span class="st">"Nulls"</span> <span class="cf">if</span> i <span class="op">==</span> <span class="dv">0</span> <span class="cf">else</span> <span class="st">""</span>)</span>
+<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> a, v <span class="kw">in</span> <span class="bu">zip</span>(null_angles, null_values):</span>
+<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a>                ax.text(a, v <span class="op">-</span> <span class="dv">3</span>, <span class="ss">f"</span><span class="sc">{</span>a<span class="sc">:.0f}</span><span class="ss">°"</span>, ha<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">7</span>, color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">"Nulls at:"</span>, [<span class="ss">f"</span><span class="sc">{</span>a<span class="sc">:.1f}</span><span class="ss">°"</span> <span class="cf">for</span> a <span class="kw">in</span> null_angles])</span>
+<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">"No nulls found."</span>)</span>
+<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Labels and title</span></span>
+<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a>        ax.set_title(titles[i])</span>
+<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a>        ax.set_xlabel(<span class="st">"Angle (°)"</span>)</span>
+<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a>        ax.set_ylabel(<span class="st">"Amplitude (dB)"</span>)</span>
+<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a>        ax.grid(<span class="va">True</span>)</span>
+<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a>        ax.legend()</span>
+<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a>    plt.suptitle(<span class="st">"Comparison of Horn Antenna Radiation Patterns: Diagram 1 vs Diagram 4"</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout(rect<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.95</span>])</span>
+<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb10-65"><a href="#cb10-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a><span class="co"># === FILE PATHS ===</span></span>
+<span id="cb10-67"><a href="#cb10-67" aria-hidden="true" tabindex="-1"></a>co_paths <span class="op">=</span> [</span>
+<span id="cb10-68"><a href="#cb10-68" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Microwave_lab_07_07_25/Measurement_Antennas/Calibrated/561_Horn1_Eplane_Co.mat"</span>,   <span class="co"># Diagram 1</span></span>
+<span id="cb10-69"><a href="#cb10-69" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Microwave_lab_07_07_25/Measurement_Antennas/Calibrated/564_Horn2_Hplane_Co.mat"</span>    <span class="co"># Diagram 4</span></span>
+<span id="cb10-70"><a href="#cb10-70" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb10-71"><a href="#cb10-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-72"><a href="#cb10-72" aria-hidden="true" tabindex="-1"></a>x_paths <span class="op">=</span> [</span>
+<span id="cb10-73"><a href="#cb10-73" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Microwave_lab_07_07_25/Measurement_Antennas/Calibrated/561_Horn1_Eplane_X.mat"</span>,    <span class="co"># Diagram 1</span></span>
+<span id="cb10-74"><a href="#cb10-74" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Microwave_lab_07_07_25/Measurement_Antennas/Calibrated/564_Horn2Hplane_X.mat"</span>     <span class="co"># Diagram 4</span></span>
+<span id="cb10-75"><a href="#cb10-75" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb10-76"><a href="#cb10-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-77"><a href="#cb10-77" aria-hidden="true" tabindex="-1"></a>titles <span class="op">=</span> [<span class="st">"Diagram 1 - Horn E-plane"</span>, <span class="st">"Diagram 4 - Horn H-plane"</span>]</span>
+<span id="cb10-78"><a href="#cb10-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-79"><a href="#cb10-79" aria-hidden="true" tabindex="-1"></a><span class="co"># === CALL FUNCTION ===</span></span>
+<span id="cb10-80"><a href="#cb10-80" aria-hidden="true" tabindex="-1"></a>plot_comparison_subplots(co_paths, x_paths, titles)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ Diagram 1 - Horn E-plane
+HPBW: 12.00° (from -6.0° to 6.0°)
+XPS: 32.60 dB
+No nulls found.
+
+ Diagram 4 - Horn H-plane
+HPBW: 12.00° (from -6.0° to 6.0°)
+XPS: 32.40 dB
+Nulls at: ['-75.0°', '-66.0°', '-60.0°', '-45.0°', '48.0°', '54.0°', '66.0°', '87.0°']</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lab5_Antennas_Group1_files/figure-html/cell-7-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Compare the shape of diagrams <strong>1</strong> and <strong>4</strong>. Why is there a difference, although the size of the aperture is identical?</p>
+<ul>
+<li><p>We can see, that the shape of diagram 1 (extended in E-Plane) has higher directivity than diagram 4 (exended in H-Plane). Also the sidelobes in diagram 4 are lower compared to diagram 1.</p></li>
+<li><p>The exension in the E-Plane or H-Plane improves the phase uniformity across the aperture, but only in the plane where the horn is extended. Therefore, due to the higher phase uniformity, the effective aperture size increases. This results in a narrower main lobe and reduced sidelobes in the extended plane.</p></li>
+<li><p>The H-plane already has a relatively uniform phase distribution due to the <span class="math inline">\(TE_{10}\)</span> mode structure. Extending it still increases the effective aperture size and slightly flattens the phase front, but the relative improvement is less than in the E-plane, what explains the difference in diagram 1 and 4.</p></li>
+</ul>
+</section>
+<section id="compare-the-results-nulls-half-power-beam-width-shape-of-the-radiation-pattern-of-diagram-1-with-the-calculations-from-exercise-4." class="level4">
+<h4 class="anchored" data-anchor-id="compare-the-results-nulls-half-power-beam-width-shape-of-the-radiation-pattern-of-diagram-1-with-the-calculations-from-exercise-4.">Compare the results (nulls, half power beam width, shape of the radiation pattern) of diagram 1 with the calculations from exercise 4.</h4>
+<ul>
+<li>Why are there fewer nulls?</li>
+<li>Why are the nulls not so distinctive?</li>
+</ul>
+<div id="7577e911" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Load measured data (Diagram 1 – E-plane) ---</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> loadMatlabData(<span class="st">"Microwave_lab_07_07_25/Measurement_Antennas/Calibrated/561_Horn1_Eplane_Co.mat"</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>mess <span class="op">=</span> data[<span class="st">'messdummy'</span>][<span class="dv">0</span>]</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>angles_meas <span class="op">=</span> mess[<span class="st">'angles'</span>].flatten()</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>E_meas <span class="op">=</span> mess[<span class="st">'measured_data'</span>].flatten()</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>E_meas_dB <span class="op">=</span> <span class="dv">20</span> <span class="op">*</span> np.log10(np.<span class="bu">abs</span>(E_meas))</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Find measured maximum angle and gain ---</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>max_idx_meas <span class="op">=</span> np.argmax(E_meas_dB)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>main_lobe_angle_meas <span class="op">=</span> angles_meas[max_idx_meas]</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>max_gain_meas <span class="op">=</span> E_meas_dB[max_idx_meas]</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Theoretical pattern (main lobe at 90° initially) ---</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="fl">3e8</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="fl">11.85e9</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>λ <span class="op">=</span> c <span class="op">/</span> f</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="fl">0.12</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>beta <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">/</span> λ</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>theta_deg_theo <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">180</span>, <span class="dv">181</span>)</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>theta_rad <span class="op">=</span> np.radians(theta_deg_theo)</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> (b <span class="op">*</span> beta <span class="op">*</span> np.cos(theta_rad)) <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>B[B <span class="op">==</span> <span class="dv">0</span>] <span class="op">=</span> <span class="fl">1e-12</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>U_norm <span class="op">=</span> np.<span class="bu">abs</span>(np.sin(B) <span class="op">/</span> B)</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>U_dB <span class="op">=</span> <span class="dv">20</span> <span class="op">*</span> np.log10(U_norm)</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Align main lobe horizontally ---</span></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>main_lobe_angle_theo <span class="op">=</span> <span class="dv">90</span></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>angular_shift <span class="op">=</span> main_lobe_angle_meas <span class="op">-</span> main_lobe_angle_theo</span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>aligned_theta <span class="op">=</span> theta_deg_theo <span class="op">+</span> angular_shift</span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Align vertically by matching max gain ---</span></span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>max_gain_theo <span class="op">=</span> np.<span class="bu">max</span>(U_dB)</span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>vertical_shift <span class="op">=</span> max_gain_meas <span class="op">-</span> max_gain_theo</span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>U_dB_aligned <span class="op">=</span> U_dB <span class="op">+</span> vertical_shift</span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Overlay Plt ---</span></span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">5</span>))</span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>plt.plot(angles_meas, E_meas_dB, label<span class="op">=</span><span class="st">"Measured (Diagram 1)"</span>, color<span class="op">=</span><span class="st">'tab:blue'</span>)</span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>plt.plot(aligned_theta, U_dB_aligned, label<span class="op">=</span><span class="st">"Theoretical (Aligned)"</span>, color<span class="op">=</span><span class="st">'tab:orange'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"E-plane Radiation Pattern: Measured vs. Theoretical (Fully Aligned)"</span>)</span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Angle (degrees)"</span>)</span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Amplitude (dB)"</span>)</span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lab5_Antennas_Group1_files/figure-html/cell-8-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>If we compare the two diagrams, we see that there are fewer nulls in the measurement and they are also not so distinctive. The main lobe is more dominant and the measured one is also not as perfectly symmetric as the simulation.</p>
+<p>Reasons for that are, that the simulation assumes: - perfectly conducting materials - ideal waveguide mode excitation - no surrounding structures or affecting materials - infinite numerical accuracy, what leads to sharp nulls</p>
+<p>Under real measurement conditions: - used materials are finite conductors with mechanical tolerances - the feed may excite higher-order modes which affect the resulting radiation pattern - Even if measurements were taken in the antenna chamber, the environment is not ideal, cables and measurement setup can add spurious scattering which prevents ideal nulls</p>
+</section>
+</section>
+<section id="exercise-5.7-patch-antenna-measurement-experiment" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-5.7-patch-antenna-measurement-experiment">Exercise 5.7 – Patch Antenna Measurement (Experiment)</h2>
+<ul>
+<li><p>Record the radiation patterns (<strong>Co- and Cross-polarization</strong>) of the <strong>patch antenna</strong> in the <strong>H-plane</strong> for <strong>f = 2 GHz</strong>.</p></li>
+<li><p>Print the following (not normalized) diagram:</p>
+<ul>
+<li>Co- and Cross-polarization in the <strong>H-plane</strong> in one diagram.</li>
+</ul></li>
+</ul>
+<div id="3ad87809" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>plot_polarizations(</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Microwave_lab_07_07_25/Measurement_Antennas/Uncalibrated/571_Patch1Hplane_Co.mat'</span>,</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Microwave_lab_07_07_25/Measurement_Antennas/Uncalibrated/571_Patch1Hplane_X.mat'</span>,</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Patch Antenna H-plane: Co- vs Cross-Polarization"</span>,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    prominence<span class="op">=</span><span class="dv">2</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lab5_Antennas_Group1_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>HPBW: 63.00° (from -33.0° to 30.0°)
+Nulls found at angles (deg): []
+Cross Polarization Suppression (XPS): 16.30 dB
+  Co-pol max within HPBW: -37.04 dB
+  Cross-pol max within HPBW: -53.34 dB</code></pre>
+</div>
+</div>
+<ul>
+<li><p>Compare the dimesions of the patch with the calculated dimensions from exercise 2</p>
+<ul>
+<li>The dimensions of the patch antenna were W=46mm and L=50mm. The ones obtained from the calculations were W=59mm and L=48mm.</li>
+</ul></li>
+<li><p>Which conclusions can you draw from the shape of the radiation pattern to the current distribution on the antenna?</p>
+<ul>
+<li>The shape of the radiation pattern in the far field resembles the current distribution over the length of the patch antenna.</li>
+</ul></li>
+<li><p>Compare the dimensions of the patch antenna with the calculated dimensions from <strong>Exercise 5.2</strong>.</p></li>
+</ul>
+<p>The dimensions of the patch antenna were W=46mm and L=50mm. The ones obtained from the calculations were W=59mm and L=48mm.</p>
+<ul>
+<li>Extract the following values from the diagram:
+<ul>
+<li><strong>Half Power Beam Width</strong> (Co-polarization)</li>
+<li><strong>Cross-polarization suppression</strong></li>
+</ul></li>
+</ul>
+</section>
+<section id="section" class="level1">
+<h1></h1>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 7%">
+<col style="width: 18%">
+<col style="width: 9%">
+<col style="width: 21%">
+<col style="width: 15%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Antenna Type</th>
+<th>Plane</th>
+<th>HPBW (°)</th>
+<th>Nulls (°)</th>
+<th>X-Pol Suppression (dB)</th>
+<th>Co-pol Max (dB)</th>
+<th>X-pol Max (dB)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Patch antenna</td>
+<td>H-plane</td>
+<td>63.0 (−33.0 to 30.0)</td>
+<td>—</td>
+<td>16.30</td>
+<td>−37.04</td>
+<td>−53.34</td>
+</tr>
+</tbody>
+</table>
+<section id="summary-of-measurement-results-exercise-5.7-patch-antenna" class="level4">
+<h4 class="anchored" data-anchor-id="summary-of-measurement-results-exercise-5.7-patch-antenna">Summary of Measurement Results – Exercise 5.7 (Patch Antenna)</h4>
+<ul>
+<li><p>Analyze the result:</p>
+<ul>
+<li>What conclusions can you draw from the shape of the radiation pattern regarding the <strong>current distribution</strong> on the antenna?</li>
+</ul>
+<p>The shape of the radiation pattern in the H-plane reflects the fundamental current distribution of a resonant λ/2 patch antenna. Since the patch was designed for an operating frequency of 2 GHz on a Teflon substrate (εᵣ = 2.2, thickness 2.5 mm), its physical length (~22.9 mm) matches the expected half-wavelength in the dielectric medium. This confirms that the antenna operates in its fundamental mode.</p>
+<p>In this mode, the current is maximal at the center and zero at the open ends, resulting in a broad, single-lobed radiation pattern without pronounced sidelobes or multiple nulls. The observed half-power beam width of 63° and the absence of strong ripples in the pattern are characteristic of a single standing wave on the patch. This alignment between theory and measurement supports the conclusion that the patch is well-matched and radiates as a λ/2 resonant element.</p></li>
+</ul>
+</section>
+<section id="exercise-5.8-patch-array-with-phase-shifters-experiment" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-5.8-patch-array-with-phase-shifters-experiment">Exercise 5.8 – Patch Array with Phase Shifters (Experiment)</h3>
+<ul>
+<li><p>Record the radiation pattern of the <strong>4×1 patch array</strong> for all <strong>three phase shifter settings</strong> in the <strong>horizontal direction</strong> for <strong>f = 2 GHz</strong>.</p></li>
+<li><p>Print all three measurements (<strong>not normalized</strong>) in <strong>one diagram</strong>.</p></li>
+</ul>
+<div id="a41e7ce4" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>plot_array_patterns(</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    paths<span class="op">=</span>[</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Microwave_lab_07_07_25/Measurement_Antennas/Calibrated/581_Patch4Hplane_Co.mat'</span>,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Microwave_lab_07_07_25/Measurement_Antennas/Calibrated/581_Patch4Hplane_62deg_Co.mat"</span>,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Microwave_lab_07_07_25/Measurement_Antennas/Calibrated/581_Patch4Hplane_137deg_Co_twisted.mat"</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    labels<span class="op">=</span>[<span class="ss">f"</span><span class="ch">\u03B8</span><span class="ss"> = 90°"</span>, <span class="ss">f"</span><span class="ch">\u03B8</span><span class="ss"> = 70°"</span>, <span class="ss">f"</span><span class="ch">\u03B8</span><span class="ss"> = 50°"</span>],</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Patch array relative beam steering (Measured)"</span>, </span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    printL<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    printA<span class="op">=</span><span class="va">True</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>θ = 90° corresponds to measured relative angle shift of 3.0°. With max amplitude = -32.12dB.
+HPBW for θ = 90° is: 21°.
+θ = 70° corresponds to measured relative angle shift of -15.0°. With max amplitude = -34.45dB.
+HPBW for θ = 70° is: 21°.
+θ = 50° corresponds to measured relative angle shift of -34.0°. With max amplitude = -29.42dB.
+HPBW for θ = 50° is: 28°.</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lab5_Antennas_Group1_files/figure-html/cell-10-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Determine the <strong>pivoting angles</strong> corresponding to each phase shift.</li>
+</ul>
+<p>The pivoting angle <span class="math inline">\(\theta\)</span> is the angle of the main lobe, relative to the horizontal patch antenna array plane. If the main radiation should be rectangular to the patch array plane, the pivoting angle is 90°. This refers to 0° phase shift in the diagram above. The measured angles above are relative to the 90° pivoting angle <span class="math inline">\(\theta\)</span>. The absolute pivoting angles in respect to the patch antenna array plane for each corresponding phase shift are: - <span class="math inline">\(\theta_{90°}\)</span> = 90° + ( +3°) = 93° - <span class="math inline">\(\theta_{70°}\)</span> = 90° + (-15°) = 75°<br>
+- <span class="math inline">\(\theta_{50°}\)</span> = 90° + (-34°) = 56°</p>
+<section id="compare-the-measured-results-with-your-calculations-from-exercise-5.3-and-explain-differences" class="level4">
+<h4 class="anchored" data-anchor-id="compare-the-measured-results-with-your-calculations-from-exercise-5.3-and-explain-differences">Compare the measured results with your calculations from <strong>Exercise 5.3</strong> and explain differences:</h4>
+<p>Calculations from <strong>Exercise 5.3</strong>:</p>
+<div id="fc24b3c6" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">### CONSTANTS </span><span class="al">###</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> <span class="fl">75e-3</span> <span class="co">##75mm</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>theta1 <span class="op">=</span> <span class="dv">90</span> <span class="co">#90 degree</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>theta2 <span class="op">=</span> <span class="dv">70</span> <span class="co">#70 degree</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>theta3 <span class="op">=</span> <span class="dv">50</span> <span class="co">#50 degree</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>epsilon <span class="op">=</span> <span class="fl">2.2</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="fl">2e9</span> <span class="co">#2 GHz</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>c0 <span class="op">=</span> <span class="fl">3e8</span> <span class="co">#speed of light</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>wavelength <span class="op">=</span> c0 <span class="op">/</span> f</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="co">### Calculation of the needed phase increment</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="co">## radiation direction theta1: </span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>phase_inc_1 <span class="op">=</span> ((<span class="op">-</span><span class="dv">2</span><span class="op">*</span> np.pi) <span class="op">/</span> wavelength) <span class="op">*</span> d <span class="op">*</span> np.sin(np.deg2rad(theta1))</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a><span class="co">## radiation direction theta2: </span></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>phase_inc_2 <span class="op">=</span> ((<span class="op">-</span><span class="dv">2</span><span class="op">*</span> np.pi) <span class="op">/</span> wavelength) <span class="op">*</span> d <span class="op">*</span> np.sin(np.deg2rad(theta2))</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a><span class="co">## radiation direction theta3: </span></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>phase_inc_3 <span class="op">=</span> ((<span class="op">-</span><span class="dv">2</span><span class="op">*</span> np.pi) <span class="op">/</span> wavelength) <span class="op">*</span> d <span class="op">*</span> np.sin(np.deg2rad(theta3))</span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The phase increment for angle </span><span class="ch">\u03B8</span><span class="ss">_</span><span class="sc">{</span><span class="dv">1</span><span class="sc">}</span><span class="ss"> = 90° is: </span><span class="sc">{</span>np<span class="sc">.</span>rad2deg(phase_inc_1)<span class="op">+</span><span class="dv">180</span><span class="sc">:.3f}</span><span class="ss">°."</span>)</span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The phase increment for angle </span><span class="ch">\u03B8</span><span class="ss">_</span><span class="sc">{</span><span class="dv">2</span><span class="sc">}</span><span class="ss"> = 70° is: </span><span class="sc">{</span>np<span class="sc">.</span>rad2deg(phase_inc_2)<span class="op">+</span><span class="dv">180</span><span class="sc">:.3f}</span><span class="ss">°."</span>)</span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The phase increment for angle </span><span class="ch">\u03B8</span><span class="ss">_</span><span class="sc">{</span><span class="dv">3</span><span class="sc">}</span><span class="ss"> = 50° is: </span><span class="sc">{</span>np<span class="sc">.</span>rad2deg(phase_inc_3)<span class="op">+</span><span class="dv">180</span><span class="sc">:.3f}</span><span class="ss">°."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The phase increment for angle θ_1 = 90° is: 0.000°.
+The phase increment for angle θ_2 = 70° is: 10.855°.
+The phase increment for angle θ_3 = 50° is: 42.112°.</code></pre>
+</div>
+</div>
+<p>Comparison of measured angle shifts with the calculated angle shifts from Exercise 5.3 to reach pivoting angle <span class="math inline">\(\theta\)</span>.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 20%">
+<col style="width: 19%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Pivoting Angle <span class="math inline">\(\theta\)</span></th>
+<th>Calculated phase increment</th>
+<th>Measured phase increment</th>
+<th>Corresponding pivoting Angle</th>
+<th>Difference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>90°</td>
+<td>0°</td>
+<td>+3°</td>
+<td>+93°</td>
+<td>3°</td>
+</tr>
+<tr class="even">
+<td>70°</td>
+<td>10.85°</td>
+<td>-15°</td>
+<td>+75°</td>
+<td>4.15°</td>
+</tr>
+<tr class="odd">
+<td>50°</td>
+<td>42.11°</td>
+<td>-34°</td>
+<td>+56°</td>
+<td>8.11°</td>
+</tr>
+</tbody>
+</table>
+<p>Explanation of the differences: The differences are relatively small. This could be realted to measurement tolerances. The different sign of the phase increment is probably from the orientation of the measurement setup.</p>
+<ul>
+<li>Analyze the results:
+<ul>
+<li>How do the three radiation patterns differ in terms of <strong>Half Power Beam Width (HPBW)</strong> and <strong>gain</strong>, and why?</li>
+</ul></li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 39%">
+<col style="width: 25%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Pivoting Angle <span class="math inline">\(\theta\)</span></th>
+<th>HPBW</th>
+<th>Max Amplitude</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>90°</td>
+<td>21°</td>
+<td>-32.12dB</td>
+</tr>
+<tr class="even">
+<td>70°</td>
+<td>21°</td>
+<td>-34.45dB</td>
+</tr>
+<tr class="odd">
+<td>50°</td>
+<td>28°</td>
+<td>-29.42dB</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Additionally:
+<ul>
+<li>Plot the <strong>radiation pattern without phase shift</strong> alongside the single patch result from <strong>Exercise 5.7</strong> in one diagram.</li>
+</ul></li>
+</ul>
+<div id="e99ea3e3" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>plot_array_patterns(</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    paths<span class="op">=</span>[</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Microwave_lab_07_07_25/Measurement_Antennas/Calibrated/581_Patch4Hplane_Co.mat'</span>,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Microwave_lab_07_07_25/Measurement_Antennas/Calibrated/571_Patch1Hplane_Co.mat"</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    labels<span class="op">=</span>[<span class="st">"Patch Array"</span>, <span class="st">"Single Patch"</span>],</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Patch Array Beam Steering (Measured)"</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Patch Array: max amplitude = -32.12dB at angle -3.0°
+HPBW for Patch Array is: 21°.
+Single Patch: max amplitude = -37.04dB at angle 9.0°
+HPBW for Single Patch is: 63°.</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lab5_Antennas_Group1_files/figure-html/cell-12-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Estimate the <strong>difference in receive power</strong> in the main radiating direction.
+<ul>
+<li>The difference is <span class="math inline">\((-32.12dB) - (-37.04dB) = 4.92dB\)</span></li>
+</ul></li>
+<li>How large should this difference theoretically be?
+<ul>
+<li>Since the number of elements is increased by 4 and so the area increases also by 4. The power should be 2*3 = 6dB.</li>
+</ul></li>
+<li>What could be the reasons for any discrepancy?
+<ul>
+<li>We have around one dB difference, which could be due to mechanical differences from antenna to antenna, interference or just measurement tolerances.</li>
+</ul></li>
+<li>Compare the <strong>HPBW</strong> of the <strong>single patch</strong> with the <strong>patch array</strong>.
+<ul>
+<li>The HPBW of the single patch is 63° and for the patch array it is 21°, which is a huge difference.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="exercise-5.9-calibration-experiment" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-5.9-calibration-experiment">Exercise 5.9 – Calibration (Experiment)</h3>
+<ul>
+<li>Calculate the number of points, so that the distance between two frequency samples is 25MHz.
+<ul>
+<li>The number of samples required is 640 measurement points.</li>
+</ul></li>
+<li>Test your calibration by measuring the gain of the reference antenna and compare it with the data sheet of the antenna under test.
+<ul>
+<li>The calibtration measurement results match the data sheets values.<br>
+</li>
+</ul></li>
+<li>Print the gain measurement and comment your comparison with the data sheet.</li>
+</ul>
+<div id="e80151e9" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Load data ---</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>freqs, amps <span class="op">=</span> load_cal_from_mat(<span class="st">"Microwave_lab_07_07_25/Measurement_Antennas/591_Calibration_Horizontal.mat"</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co">#--- Plot ---</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">4</span>))</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>plt.plot(freqs <span class="op">*</span> <span class="fl">1e-9</span>, amps, color<span class="op">=</span><span class="st">'tab:blue'</span>)</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Measured Calibration Response"</span>)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Frequency [GHz]"</span>)</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Amplitude [dB]"</span>) </span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Value at target frequency ---</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>target_freq <span class="op">=</span> <span class="fl">11.85e9</span></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>idx <span class="op">=</span> np.argmin(np.<span class="bu">abs</span>(freqs <span class="op">-</span> target_freq))</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Amplitude at 11.85 GHz: </span><span class="sc">{</span>amps[idx]<span class="sc">:.4f}</span><span class="ss"> dB"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lab5_Antennas_Group1_files/figure-html/cell-13-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Amplitude at 11.85 GHz: -50.3616 dB</code></pre>
+</div>
+</div>
+<p>Comparing the calibration results with the datasheet of the AUT shows as expected slight differences but matches it in general.</p>
+</section>
+<section id="print-the-gain-measurement-for-both-horns-in-one-diagram" class="level3">
+<h3 class="anchored" data-anchor-id="print-the-gain-measurement-for-both-horns-in-one-diagram">Print the gain measurement for both horns in one diagram</h3>
+<div id="f6199f97" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>freqs_H, E_dB_H <span class="op">=</span> load_gain_from_mat(<span class="st">"Microwave_lab_07_07_25/Measurement_Antennas/Task9/Task9_H_plane_Horn.mat"</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>freqs_E, E_dB_E <span class="op">=</span> load_gain_from_mat(<span class="st">"Microwave_lab_07_07_25/Measurement_Antennas/Task9/Task9_E_plane_Horn.mat"</span>)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Plot ---</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">4</span>))</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>plt.plot(freqs_H , E_dB_H, label<span class="op">=</span><span class="st">"H-plane Horn"</span>) </span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>plt.plot(freqs_E , E_dB_E, label<span class="op">=</span><span class="st">"E-plane Horn"</span>)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Frequency [GHz]"</span>)</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Amplitude [dB]"</span>)</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Horn Antenna Measurement"</span>)</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Users\luigi\AppData\Local\Temp\ipykernel_30940\1513008253.py:203: RuntimeWarning: divide by zero encountered in log10
+  E_dB = 20 * np.log10(np.abs(E))</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lab5_Antennas_Group1_files/figure-html/cell-14-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><p>What is the minimum “usable” frequency of both antennas? Explain why.</p>
+<ul>
+<li>The minimum usable frequency is for both around 7 GHz because the gain drops there significantly.</li>
+</ul></li>
+<li><p>For higher frequencies, the gain fluctuates and gets worse. Starting from which frequency does this effect occur?</p>
+<ul>
+<li>This effect starts up from around 13 GHz.</li>
+</ul></li>
+<li><p>Why is the gain getting worse?</p>
+<ul>
+<li>This could be due to dimensions of the antenna, which determine the frequency range (according to eqtion 12 of the lab script) and also because the antenna matching is usually also frequency dependent.</li>
+</ul></li>
+<li><p>Explain this behavior. (Hint: Is there a correlation between the minimum and maximum “usable” frequency of the horns?)</p>
+<ul>
+<li>The excitation and propagation of H10 mode depends on the geometry of the antenna and is limited by a lower and upper frequency.</li>
+<li>Also an upper and lower frequency is limiting the matching performance of the antenna. If the power matching is not sufficient, the input reflections of the antenna are high and therefore also the gain drops.</li>
+</ul></li>
+<li><p>Compare the gain of both horn antennas.</p>
+<ul>
+<li>The gain of both antennas is almost identical.</li>
+</ul></li>
+<li><p>How big is the difference and where does it originate from?</p>
+<p>There is a difference. The E antenna has a “quasi-flat” gain while there is a ripple in the gain of the antenna extended in the H-Plane of about 3dB.</p></li>
+</ul>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
